@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "next dev -p 3060",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prisma": "prisma generate && prisma db push"
   },
   "author": "dltlghkd930217 <dltlghkd930217@gmail.com>",
   "license": "MIT",
   "homepage": "https://simoong.blog",
   "dependencies": {
+    "@prisma/client": "^5.14.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "fast-fuzzy": "^1.12.0",
@@ -19,6 +21,7 @@
     "next": "^13.0.6",
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
+    "prisma": "^5.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.33.2"

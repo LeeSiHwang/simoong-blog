@@ -1,4 +1,4 @@
-const mainVisual = () => {
+const MainVisual = () => {
     return (
         <div className='title-container col-span-3 h-[350px]'>
             <div className='w-full h-full align-middle justify-center items-center flex flex-row'>
@@ -9,4 +9,4 @@ const mainVisual = () => {
 }
 
 
-export default mainVisual
+export default MainVisual

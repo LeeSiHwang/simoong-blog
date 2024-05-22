@@ -1,0 +1,63 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["extendedWhereUnique"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model posts {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  content     String
+  lastUpdated String
+  writtenDate String
+  tag         String
+  thumbnail   String
+  category    category @relation(fields: [categoryId], references: [id])
+  categoryId  String   @db.ObjectId
+}
+
+model category {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  category String  @unique
+  selected Boolean @default(false)
+  posts    posts[]
+}
+
+model projectCategory {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  category String    @unique
+  selected Boolean   @default(false)
+  project  project[]
+}
+
+model project {
+  id                String          @id @default(auto()) @map("_id") @db.ObjectId
+  title             String
+  description       String
+  content           String
+  lastUpdated       String
+  writtenDate       String
+  tag               String
+  thumbnail         String
+  projectCategory   projectCategory @relation(fields: [projectCategoryId], references: [id])
+  projectCategoryId String          @db.ObjectId
+}
+
+model diary {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  content     String
+  lastUpdated String
+  writtenDate String
+  thumbnail   String
+}
+
+model admin {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  password String
+}

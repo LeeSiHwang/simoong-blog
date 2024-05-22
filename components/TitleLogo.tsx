@@ -2,7 +2,7 @@ import { useTheme } from 'nextra-theme-docs';
 import { useEffect } from 'react';
 import { classNames } from 'utils/useClassNames';
 
-export default function Logo() {
+export default function TitleLogo() {
   const { theme } = useTheme();
 
   useEffect(()=>{},[theme])
