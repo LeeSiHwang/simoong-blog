@@ -2,7 +2,7 @@ import '@/styles/globals.css';
 
 import { AppProps } from 'next/app';
 import { Noto_Sans_KR } from 'next/font/google';
-import { ThemeProvider } from 'next-themes';
+import CustomThemeProviders from 'provider/themeProvider';
 
 const noto = Noto_Sans_KR({
   subsets: ['latin'],
@@ -10,9 +10,9 @@ const noto = Noto_Sans_KR({
 });
 const BlogApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider attribute='class'>
+    <CustomThemeProviders>
       <Component {...pageProps} className={noto.className} />
-    </ThemeProvider>
+    </CustomThemeProviders>
   );
 };
 
