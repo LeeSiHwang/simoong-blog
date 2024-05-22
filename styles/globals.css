@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html{
+  scroll-padding-top: 65px !important;
+}
+
+hr{
+  border: 1px solid #333;
+  margin-top: 1.5rem !important;
+}
+
+
+
