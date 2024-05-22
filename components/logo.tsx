@@ -1,3 +1,15 @@
+import { useTheme } from 'nextra-theme-docs';
+import { classNames } from 'utils/useClassNames';
+
 export default function Logo() {
-    return <h1 className='p-2 lg:mr-4 inline-flex items-center cursor-pointer text-xl dark:text-white font-bold uppercase tracking-wide text-black'>{`SiMoong's Blog`}</h1>
+  const { theme } = useTheme();
+
+  return (
+    <h1
+      className={classNames(
+        `p-2 lg:mr-4 inline-flex items-center cursor-pointer text-xl font-bold uppercase tracking-wide `,
+        theme === 'dark' ? 'text-white' : 'text-black'
+      )}
+    >{`SiMoong's Blog`}</h1>
+  );
 }
