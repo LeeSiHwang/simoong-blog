@@ -1,6 +1,8 @@
-// components/Posts.js
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { IPost } from 'utils/types';
+import Col from './Col';
+import HoverEffect from './HoverEffect';
 
 const PostBox = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -13,19 +15,26 @@ const PostBox = () => {
     };
 
     fetchPosts();
+    console.log(posts);
   }, []);
 
   return (
-    <div>
-      <h1>My Posts</h1>
-      <ul>
-        {posts.map(post => (
-          <li key={post.id}>
-            <img src={post.thumbnail} alt={post.title} style={{ width: '100px', height: '100px' }} />
-            <h2>{post.title}</h2>
-          </li>
-        ))}
-      </ul>
+    <div className="grid grid-cols-3 gap-2">
+      {posts.map((post) => (
+        <div key={post.id} className="relative hover:cursor-pointer transition ">
+          <Col className="relative">
+            <Image
+              src={post.thumbnail}
+              width={500}
+              height={500}
+              alt={`${post.title} 관련 이미지`}
+              className="transition-transform duration-300"
+            />
+            <div className="post-title text-base font-bold">{post.title}</div>
+            <HoverEffect text={post.description}/>
+          </Col>
+        </div>
+      ))}
     </div>
   );
 };
