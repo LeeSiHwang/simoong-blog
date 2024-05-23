@@ -1,23 +1,19 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
-import { CDN } from 'utils/constants';
+import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { SkipNavLink } from 'nextra-theme-docs'
 
-export default class _Document extends Document {
+class MyDocument extends Document {
   render() {
     return (
-      <Html>
-        <Head>
-          <link
-            rel="shortcut icon"
-            href={`${CDN}/fav.ico`}
-            type="image/x-icon"
-            sizes="any"
-          />
-        </Head>
+      <Html lang="ko">
+        <Head />
         <body>
+          <SkipNavLink styled />
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
+
+export default MyDocument

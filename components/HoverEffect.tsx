@@ -4,18 +4,18 @@ interface HoverEffectProps {
 
 const HoverEffect: React.FC<HoverEffectProps> = ({ text }) => {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-md p-3">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="icon icon-tabler icon-tabler-book"
         width="68"
         height="68"
         viewBox="0 0 24 24"
-        stroke-width="2.5"
+        strokeWidth="2.5"
         stroke="#ffffff"
         fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
