@@ -17,6 +17,7 @@ model posts {
   writtenDate String
   tag         String
   thumbnail   String
+  url         String
   category    category @relation(fields: [categoryId], references: [id])
   categoryId  String   @db.ObjectId
 }

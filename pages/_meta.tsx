@@ -1,19 +1,17 @@
-import { title } from "process";
+
 
 export default {
   index: {
-    type: 'page',
     title: "홈",
+    type: "page"
   },
   about: {
-    type: 'page',
     title: "소개글",
+    type: "page"
   },
-  "posts": {
-    type: 'menu',
+  posts: {
+    type: "page",
     title: "포스트",
-    items: [
-      
-    ]
+    href: "/posts/posts"
   }
 }

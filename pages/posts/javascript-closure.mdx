@@ -1,0 +1,96 @@
+# 쉽게 이해하는 자바스크립트 클로저(Closure)
+
+# 자바스크립트 클로저(Closure) 쉽게 이해하기
+
+클로저는 자바스크립트에서 매우 중요한 개념 중 하나입니다. 이를 이해하면 코드를 더 효율적으로 작성할 수 있고, 복잡한 문제를 해결하는 데 도움이 됩니다. 이번 글에서는 클로저에 대해 깊이 있게 다루어보겠습니다.
+
+## 클로저란 무엇인가요?
+클로저는 함수와 함수가 선언될 당시의 환경(Lexical Environment)과의 조합입니다. 이는 함수가 다른 함수의 내부에 중첩될 때 발생합니다. 내부 함수는 외부 함수의 변수에 접근할 수 있는데, 이것이 바로 클로저입니다.
+
+간단한 예제를 통해 클로저를 살펴보겠습니다.
+
+```javascript
+function outerFunction() {
+  let outerVariable = 'I am outer!';
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+const myClosure = outerFunction();
+myClosure(); // 출력: I am outer!
+```
+
+위 코드에서 innerFunction은 outerFunction의 내부에서 정의되었습니다. 하지만 myClosure를 호출할 때 outerVariable에 접근할 수 있습니다. 이것이 클로저의 동작 원리입니다.
+
+## 클로저의 활용
+
+### 1. Private 변수 구현
+클로저를 사용하면 변수를 외부에서 접근할 수 없도록 숨길 수 있습니다. 이는 객체 지향 프로그래밍에서의 private 변수와 유사한 개념입니다.
+
+
+```javascript
+function counter() {
+  let count = 0;
+
+  return function() {
+    count++;
+    console.log(count);
+  }
+}
+
+const increment = counter();
+increment(); // 출력: 1
+increment(); // 출력: 2
+```
+
+### 2. 상태 유지(State Preservation)
+클로저를 사용하면 함수가 종료되더라도 해당 함수의 변수가 메모리에 유지됩니다. 이를 통해 함수의 내부 상태를 유지할 수 있습니다.
+
+```javascript
+function createCounter() {
+  let count = 0;
+
+  return {
+    increment: function() {
+      count++;
+    },
+    getCount: function() {
+      return count;
+    }
+  };
+}
+
+const counter = createCounter();
+counter.increment();
+console.log(counter.getCount()); // 출력: 1
+```
+
+### 3. 함수 팩토리(Function Factory)
+클로저를 활용하여 매번 새로운 함수를 생성하는 함수 팩토리를 만들 수 있습니다.
+
+```javascript
+function greeter(name) {
+  return function() {
+    console.log(`Hello, ${name}!`);
+  };
+}
+
+const greetJohn = greeter('John');
+greetJohn(); // 출력: Hello, John!
+```
+
+> [!CAUTION]
+> 클로저를 사용할 때 주의해야 할 몇 가지 사항이 있습니다.
+
+- 메모리 누수(Memory Leak): 클로저를 잘못 사용하면 메모리 누수가 발생할 수 있습니다. 필요 이상으로 변수를 계속 유지하면 메모리가 부족해질 수 있습니다.
+
+- 성능 저하: 클로저를 과도하게 사용하면 성능이 저하될 수 있습니다. 클로저는 외부 변수에 접근할 때마다 스코프 체인을 거쳐야 하므로 이는 성능에 영향을 줄 수 있습니다.
+
+## 마무리
+클로저는 자바스크립트에서 강력한 도구 중 하나입니다. 
+이를 올바르게 활용하면 코드를 더 깔끔하고 유연하게 작성할 수 있습니다. 하지만 너무 남발하지 않고 적절히 사용해야 합니다. 클로저에 대한 개념을 잘 이해하고, 실제로 활용해보면 코드 작성에 많은 도움이 될 것입니다. 
+함께 클로저를 마스터하여 자바스크립트의 능력을 극대화해봅시다!

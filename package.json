@@ -1,12 +1,14 @@
 {
   "name": "simoong-nextra-blog",
   "version": "0.0.1",
+  "type": "module",
   "description": "Simoong's Blog with nextra",
   "scripts": {
     "dev": "next dev -p 3060",
     "build": "next build",
     "start": "next start",
-    "prisma": "prisma generate && prisma db push"
+    "prisma": "prisma generate && prisma db push",
+    "post": "tsx utils/createPost"
   },
   "author": "dltlghkd930217 <dltlghkd930217@gmail.com>",
   "license": "MIT",
@@ -17,6 +19,7 @@
     "dotenv": "^16.4.5",
     "fast-fuzzy": "^1.12.0",
     "file-saver": "^2.0.5",
+    "fs-extra": "^11.2.0",
     "jszip": "^3.10.1",
     "next": "^13.0.6",
     "nextra": "^3.0.0-alpha.24",

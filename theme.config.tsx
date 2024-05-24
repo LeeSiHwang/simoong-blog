@@ -3,6 +3,7 @@ import { LocaleSwitch, useConfig } from 'nextra-theme-docs'
 import { useRouter } from 'nextra/hooks'
 import type { ComponentProps, ReactElement } from 'react'
 import Logo from './components/TitleLogo';
+import { CDN } from 'utils/constants';
 
 const config: DocsThemeConfig = {
   logo: (<Logo/>),
@@ -28,6 +29,7 @@ const config: DocsThemeConfig = {
     return (
       <>
         <title>{`Simoong's Blog`}</title>
+        <link rel="icon" type="image/x-icon" href={`${CDN}fav.ico`}/>
         <meta property="og:url" content={url} />
         <meta property="og:title" content={frontMatter.title} />
         <meta
